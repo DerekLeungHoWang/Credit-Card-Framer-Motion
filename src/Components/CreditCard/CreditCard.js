@@ -21,7 +21,7 @@ const container = {
   }
 }
 const cardNumber = {
-  hidden: { y: '2vh' },
+  hidden: { y: '3vh' },
   show: {
     y: 0,
     transition: {
