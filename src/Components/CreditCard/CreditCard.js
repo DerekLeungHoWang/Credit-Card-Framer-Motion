@@ -7,22 +7,23 @@ import { ReactComponent as earth } from '../../Assets/Images/earth.svg'
 
 const container = {
   hidden: {
-    // y: '-100vh' 
-    opacity: 0
+    y: '-100vh' 
+  
   },
   show: {
-    opacity: 1,
-    // y: 0,
+  
+     y: 0,
     transition: {
       type: 'spring',
-      duration: 3
+      duration:1
 
     }
   }
 }
 const cardNumber = {
-  hidden: { y: '3vh' },
+  hidden: { y: '100px', opacity: 0 },
   show: {
+    opacity: 1,
     y: 0,
     transition: {
       type: 'spring',
@@ -31,10 +32,12 @@ const cardNumber = {
     }
   },
   exit: {
-    y: '100vh',
+    opacity: 0,
+    y: '-10px'
+    ,
     transition: {
-      type: 'spring',
-      duration: .5
+      type: 'tween',
+      duration: 0.5
 
     }
   }
@@ -42,9 +45,15 @@ const cardNumber = {
 
 
 function CreditCard(props) {
-  const { number } = props
-
-  //number &&  number.match(/.{1,4}/g).join(' ')
+  const { number , neededHash} = props
+ console.log(neededHash);
+        let str=[]
+              for(let i = 0;i<neededHash;i++){    
+                 
+                  str.push('#')
+ 
+           }
+          str = str.join("").replace(/(.{4})/g, " $1").trim()
 
   return (
     <MyCard variants={container}
@@ -58,7 +67,9 @@ function CreditCard(props) {
       <CardNumberContainer
       >
         <AnimatePresence   >
-          {number.split("").map((char, index) => {
+          { number.replace(/ /g,'').split("").map((char, index) => {
+             
+             // let res =   index % 4 == 0 ? ' ' + char : char).join('').trim()
             return (
               <motion.div
                 key={index}
@@ -67,18 +78,23 @@ function CreditCard(props) {
                 animate="show"
                 exit="exit"
               >
-                {char}
+                {(index+1)%4==0 ? char+'\xa0\xa0\xa0\xa0'   :char  
+                
+                
+                } 
+            
               </motion.div>
-
+ 
             )
-          })}
+          }) }
+            
         </AnimatePresence>
+          
       </CardNumberContainer>
 
       <ExpDateContainer>
-        <div style={{ fontSize: "8px", padding: "13px 5px" }}>
-          <div>VALID</div>
-          <div>THUR</div>
+        <div style={{ fontSize: "13px", padding: "13px 5px" }}>
+          <h3>Exp Date - </h3>
         </div>
         <div>
           08/23

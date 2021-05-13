@@ -9,8 +9,8 @@ import { motion } from 'framer-motion';
 export const MyCard = styled(motion.div)`
 
 position:absolute;
-    height: 300px;
-     width: 550px;
+    height: 260px;
+     width: 450px;
     border-radius:18px;
     border: 1px solid #000;
   background: linear-gradient(0.25turn, #7b4397  , #dc2430);
@@ -34,9 +34,9 @@ position:absolute;
 export const ChipLogo = styled(chip)`
      position:absolute;
      left:13%;
-     top:28%;
-     height: 5rem;
-    width: 5rem;
+     top:25%;
+     height: 4rem;
+    width: 4rem;
     z-index: 5;
  
 
@@ -46,10 +46,13 @@ export const CardNumberContainer = styled(motion.div)`
      left:13%;
      bottom:34%;
      color:white;
-     font-weight:600;
+ 
      font-size:30px;
      display:flex;
      flex-direction:row;
+     font-family:Roboto;
+font-weight:500;
+text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
 
 `
 export const EarthContainer = styled(motion.div)`
@@ -62,7 +65,7 @@ export const EarthContainer = styled(motion.div)`
 export const VisaLogo = styled(visaLogo)`
        position:absolute;
     right:25px;
-    bottom:0px;
+    top:0px;
    height: 5rem;
     width: 5rem;
     z-index: 2;
@@ -88,26 +91,26 @@ color: white;
 font-size:30px;
 font-family:Roboto;
 font-weight:500;
+text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
 margin-bottom:3px;
 padding:0;
-text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+
  z-index: 2;
 `
 
 
 export const ExpDateContainer = styled(motion.div)`
-     position:absolute;
-     bottom:90px;
-     left:15px;
-     width:100%;
+      position:absolute;
+      bottom:10px;
+      right:30px;
+  
      font-weight:500;
 	display: flex;
      flex-direction:row;
-	color: #c4e0e5;
+	color: white;
      align-items: center;
      justify-content:  center;
-     margin-bottom:-30px;
-     margin-left:-60px;
+     
 `
 
 export const FormContainer = styled(motion.form)`
