@@ -6,6 +6,7 @@ import { AnimatePresence } from 'framer-motion';
 import CreditCard from './Components/CreditCard/CreditCard';
 import Home from './Home/Home';
 import Payment from './Components/Payment';
+import Test from './Components/Test/Test';
 
 
 

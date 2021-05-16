@@ -8,16 +8,16 @@ import { motion } from 'framer-motion';
 
 export const MyCard = styled(motion.div)`
 
-position:absolute;
-    height: 260px;
-     width: 450px;
+ 
+    height: 100%;
+     width: 100%;
     border-radius:18px;
     border: 1px solid #000;
   background: linear-gradient(0.25turn, #7b4397  , #dc2430);
  
    position:relative;
    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.5);
-     z-index:3;
+      z-index:3;
    @media (max-width: 768px) {
      zoom: 0.7;
     -moz-transform: scale(0.5);
@@ -29,7 +29,9 @@ export const Earth = styled(earth)`
 position:absolute;
  width:100%;
  height:100%;
+ left:0%;
   opacity:0.4;
+  border-radius:18px;
 `
 export const ChipLogo = styled(chip)`
      position:absolute;
@@ -83,10 +85,10 @@ export const CardTextContainer = styled(motion.div)`
 `
 
 export const CardText = styled(motion.p)`
-      position:absolute;
-      bottom:30px;
-     left:30px;
- width:100%;
+  position:absolute;
+  bottom:10%;
+  left:10%;
+ //width:100%;
 color: white;
 font-size:30px;
 font-family:Roboto;
@@ -109,7 +111,7 @@ export const ExpDateContainer = styled(motion.div)`
      flex-direction:row;
 	color: white;
      align-items: center;
-     justify-content:  center;
+     justify-content:  space-between;
      
 `
 

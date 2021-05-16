@@ -2,27 +2,36 @@ import React, { useState } from 'react'
 import CreditCard from './CreditCard/CreditCard'
 import PaymentForm from './CreditCard/PaymentForm'
 import { PaymentContainer, CreditCardWrapper } from './PaymentStyles'
+import Test from './Test/Test';
 
 export default function Payment() {
 
-    const [number, setNumber] = useState('');
-    const [name, setName] = useState('Cat in the Hat');
-    const [neededHash,setNeededHash]=useState(16);
+    const [number, setNumber] = useState('################');
+    const [name, setName] = useState('Card Holder');
+    const [neededHash, setNeededHash] = useState(16);
+    const [focusCVC, setFocusCVC] = useState(false);
+
+
+
+    const handleNameChange = (e) => {
+
+        setName(e.target.value)
+    };
     const handleNumberChange = (e) => {
-  
+
         let neededHash = 16 - e.target.value.length
-     
+
         const regex = /^ *[\d ]*$/;
 
-    
-      console.log('trimed value ', e.target.value);
+
+        console.log('trimed value ', e.target.value);
         if (regex.test(e.target.value)) {
 
-              let value = `${e.target.value}`
-              let neededHash = 16-value.replace(/\s/g, '').trim().length
-           
-       
-              setNeededHash(neededHash)
+            let value = `${e.target.value}`
+            let neededHash = 16 - value.replace(/\s/g, '').trim().length
+
+
+            setNeededHash(neededHash)
             setNumber(`${value}`);
         }
 
@@ -30,20 +39,27 @@ export default function Payment() {
 
     };
 
-    const handleNameChange = (event) => {
-        console.log(event.target.value);
-        setNumber(event.target.value);
-    };
+    const handleBlurCVC = (e) => {
+        setFocusCVC(false)
+    }
+    const handleFocusCVC = (e) => {
+        setFocusCVC(true)
+    }
+
+
 
     return (
         <PaymentContainer>
 
-            <CreditCard number={number} neededHash={neededHash} />
-
+            {/* <CreditCard number={number} neededHash={neededHash} /> */}
+            <Test number={number} neededHash={neededHash} name={name} focusCVC={focusCVC} />
             <PaymentForm
+                handleBlurCVC={handleBlurCVC}
+                handleFocusCVC={handleFocusCVC}
                 handleNumberChange={handleNumberChange}
                 handleNameChange={handleNameChange}
                 number={number}
+
             />
         </PaymentContainer>
     )

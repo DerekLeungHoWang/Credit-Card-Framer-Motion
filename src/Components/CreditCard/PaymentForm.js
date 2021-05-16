@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         justifyContent: 'center',
         position: 'relative',
-        bottom: '130px',
+        bottom: '60px',
         boxShadow: '0 15px 15px rgba(0, 0, 0, 0.5)'
 
     },
@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
 function PaymentForm(props) {
     const classes = useStyles();
     const controls = useAnimation();
-    const { handleNumberChange, number } = props
+    const { handleNumberChange, number, handleNameChange, handleFocusCVC,handleBlurCVC } = props
     const [selectedDate, handleDateChange] = useState();
 
 
@@ -125,7 +125,7 @@ function PaymentForm(props) {
                         label="Card Holder"
                         className={classes.textField}
                         margin="normal"
-
+                        onChange={handleNameChange}
                         variant="outlined"
                     />
                 </Grid>
@@ -172,7 +172,9 @@ function PaymentForm(props) {
                             label="CVC"
                             margin="normal"
                             variant="outlined"
-                        />
+                            onFocus={() => props.handleFocusCVC()}
+                            onBlur={() => props.handleBlurCVC()} />
+                        
                     </Grid>
 
                 </Grid>

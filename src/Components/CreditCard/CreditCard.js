@@ -45,8 +45,9 @@ const cardNumber = {
 
 
 function CreditCard(props) {
-  const { number , neededHash} = props
- console.log(neededHash);
+  
+  const { number , neededHash , name, focusCVC} = props
+ console.log(props);
         let str=[]
               for(let i = 0;i<neededHash;i++){    
                  
@@ -56,9 +57,7 @@ function CreditCard(props) {
           str = str.join("").replace(/(.{4})/g, " $1").trim()
 
   return (
-    <MyCard variants={container}
-      initial="hidden"
-      animate="show"
+    <MyCard 
 
     >
       <Earth />
@@ -67,7 +66,7 @@ function CreditCard(props) {
       <CardNumberContainer
       >
         <AnimatePresence   >
-          { number.replace(/ /g,'').split("").map((char, index) => {
+          {number.replace(/ /g,'').split("").map((char, index) => {
              
              // let res =   index % 4 == 0 ? ' ' + char : char).join('').trim()
             return (
@@ -101,7 +100,7 @@ function CreditCard(props) {
     </div>
 
       </ExpDateContainer>
-      <CardText>Derek Leung</CardText>
+      <CardText>{name}</CardText>
       <VisaLogo />
       {/* <EarthContainer> */}
 
