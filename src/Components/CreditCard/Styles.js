@@ -30,7 +30,7 @@ position:absolute;
  width:100%;
  height:100%;
  left:0%;
-  opacity:0.4;
+  opacity:.5;
   border-radius:18px;
 `
 export const ChipLogo = styled(chip)`
@@ -39,8 +39,8 @@ export const ChipLogo = styled(chip)`
      top:25%;
      height: 4rem;
     width: 4rem;
-    z-index: 5;
- 
+    z-index:1;
+   
 
  `
 export const CardNumberContainer = styled(motion.div)`

@@ -22,8 +22,8 @@ export const FlipCardInner = styled(motion.div)`
  // box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
  
  ${({ focusCVC }) => {
-   console.log(focusCVC);
-   
+    console.log(focusCVC);
+
     return (focusCVC && `
      transform: rotateY(180deg);
   `)
@@ -51,7 +51,7 @@ export const FlipCardFront = styled(motion.div)`
 `
 
 export const FlipCardBack = styled(motion.div)`
- background-color: #2980b9;
+  background: linear-gradient(0.25turn, #7b4397  , #dc2430);
   color: white;
   transform: rotateY(180deg);
     position: absolute;
@@ -62,4 +62,53 @@ export const FlipCardBack = styled(motion.div)`
   border-radius:18px;
   
 `
+
+
+export const CardBackNameContainer = styled(motion.div)`
+position:absolute;
+ 
+  left:10%;
+  top:30%;
+  width: 80%;
+  height: 50px;
+  color:black;
+  font-family: 'Rock Salt', cursive;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+ 
+background-color:#fff;
+background-size: 64px 128px;
+  font-weight:900;
+
+  p:nth-of-type(1) {
+  padding-left:3%;
+}
+p:nth-of-type(2) {
+  padding-right:3%;
+}
+  
+`
+export const CardBackCVCContainer = styled(motion.div)`
+position:absolute;
+  background: #f0ebeb;
+  right:10%;
+  top:30%;
+  width: 90px;
+  height: 50px;
+  color:black;
+ 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+`
+
+export const CardBackThank = styled(motion.div)`
+ position:absolute;
+ width:100%;
+ bottom:10%;
+ font-weight:600;
+`
+
 

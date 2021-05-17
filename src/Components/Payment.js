@@ -10,7 +10,7 @@ export default function Payment() {
     const [name, setName] = useState('Card Holder');
     const [neededHash, setNeededHash] = useState(16);
     const [focusCVC, setFocusCVC] = useState(false);
-
+    const [cvc, setCvc] = useState("345");
 
 
     const handleNameChange = (e) => {
@@ -46,19 +46,23 @@ export default function Payment() {
         setFocusCVC(true)
     }
 
-
+    const handleCVCChange = (e) => {
+        setCvc(e.target.value)
+    }
 
     return (
         <PaymentContainer>
 
             {/* <CreditCard number={number} neededHash={neededHash} /> */}
-            <Test number={number} neededHash={neededHash} name={name} focusCVC={focusCVC} />
+            <Test number={number} neededHash={neededHash} name={name} focusCVC={focusCVC} cvc={cvc} />
             <PaymentForm
                 handleBlurCVC={handleBlurCVC}
                 handleFocusCVC={handleFocusCVC}
                 handleNumberChange={handleNumberChange}
                 handleNameChange={handleNameChange}
+                handleCVCChange={handleCVCChange}
                 number={number}
+                cvc={cvc}
 
             />
         </PaymentContainer>

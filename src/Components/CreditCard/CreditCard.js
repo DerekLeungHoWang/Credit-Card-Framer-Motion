@@ -96,7 +96,7 @@ function CreditCard(props) {
           <h3>Exp Date - </h3>
         </div>
         <div>
-          08/23
+      05/22
     </div>
 
       </ExpDateContainer>

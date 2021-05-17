@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FlipCard, FlipCardBack, FlipCardFront, FlipCardInner } from './TestStyles'
+import { FlipCard, FlipCardBack, FlipCardFront, FlipCardInner, CardBackNameContainer ,CardBackCVCContainer, CardBackThank} from './TestStyles'
 import CreditCard from '../CreditCard/CreditCard'
 import image1 from '../../Assets/Images/image1.jpg'
 const container = {
@@ -19,7 +19,7 @@ const container = {
     }
 }
 function Test(props) {
-    const { focusCVC } = props
+    const { focusCVC, name,cvc } = props
     return (
         <FlipCard
             variants={container}
@@ -32,14 +32,22 @@ function Test(props) {
                     <CreditCard
                         number={props.number}
                         neededHash={props.neededHash}
-                        name={props.name}
+                        name={name}
                         focusCVC={focusCVC} />
                 </FlipCardFront>
 
                 <FlipCardBack>
-                    <h1>John Doe</h1>
-                    <p>Architect  Engineer</p>
-                    <p>We love that guy</p>
+                    <CardBackNameContainer>
+                        <p>{name}</p>
+                        <p>{cvc}</p>
+                    </CardBackNameContainer>
+                    {/* <CardBackCVCContainer>
+                        <p>{cvc}</p>
+                    </CardBackCVCContainer> */}
+                    <CardBackThank>
+                        <p>Thank you for using our service ! </p>
+                    </CardBackThank>
+
                 </FlipCardBack>
             </FlipCardInner>
         </FlipCard>

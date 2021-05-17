@@ -48,8 +48,8 @@ const useStyles = makeStyles((theme) => ({
 function PaymentForm(props) {
     const classes = useStyles();
     const controls = useAnimation();
-    const { handleNumberChange, number, handleNameChange, handleFocusCVC,handleBlurCVC } = props
-    const [selectedDate, handleDateChange] = useState();
+    const { handleNumberChange, number, handleNameChange, handleFocusCVC,handleBlurCVC , handleCVCChange,cvc} = props
+    const [selectedDate, handleDateChange] = useState(new Date(new Date().setFullYear(new Date().getFullYear() + 1)));
 
 
     const maxLength = 19;
@@ -166,14 +166,21 @@ function PaymentForm(props) {
                         alignItems="center"
                         xs={5} md={5}>
                         <TextField
-
                             className={classes.textField}
                             id="outlined-full-width"
                             label="CVC"
                             margin="normal"
                             variant="outlined"
-                            onFocus={() => props.handleFocusCVC()}
-                            onBlur={() => props.handleBlurCVC()} />
+                            value={cvc}
+                            onChange={handleCVCChange}
+                            onFocus={handleFocusCVC}
+                            onBlur={handleBlurCVC} 
+                            inputProps={{
+                                maxlength: 3
+                            }}
+                            
+                            />
+                            
                         
                     </Grid>
 
